@@ -1,0 +1,8 @@
+{
+  "name": "LexiMind",
+  "description": "An AI-powered vocabulary learning platform with smart flashcards, PDF extraction, spaced repetition, and gamification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
