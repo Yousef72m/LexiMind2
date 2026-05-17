@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY2 || process.env.GEMINI_API_KEY,
+      apiKey: process.env.GEMINI_API_KEY2,
     });
 
     const { text, image, mimeType } = req.body;
