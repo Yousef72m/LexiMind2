@@ -31,11 +31,11 @@ async function startServer() {
       if (image && mimeType) {
         contents = [
           { inlineData: { data: image, mimeType: mimeType } },
-          "Extract up to 20 important, challenging English vocabulary words from the provided image. Do not extract basic words."
+          "Extract EVERYTHING that looks like an English vocabulary word from the provided image. Do NOT leave any words out. Provide all words."
         ];
       } else {
-        contents = `Extract up to 20 important, challenging English vocabulary words from the following text. Do not extract basic words.
-        Text: ${text.substring(0, 10000)} // Limiting to prevent massive payload issues
+        contents = `Extract EVERYTHING that looks like an English vocabulary word from the following text. Do NOT leave any words out. Provide all words.
+        Text: ${text.substring(0, 40000)} // Limiting to prevent massive payload issues
         `;
       }
 
@@ -43,7 +43,7 @@ async function startServer() {
         model: "gemini-3-flash-preview",
         contents,
         config: {
-          systemInstruction: "You are an expert linguistics AI designed to extract difficult and important English vocabulary words from provided study material.",
+          systemInstruction: "You are an expert linguistics AI designed to extract ALL English vocabulary words from provided study material. Even basic words should be extracted if present. Output all possible words.",
           responseMimeType: "application/json",
           responseSchema: {
             type: Type.ARRAY,
